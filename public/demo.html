@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Grupo 7 · Reclamos de pedidos</title>
+<style>
+:root{--ink:#302744;--muted:#675e75;--purple:#594079;--paper:#f6f4f0;--line:#ded9e4;--error:#a12932;--green:#21644b}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{cursor:wait;opacity:.6}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid #a66c19;outline-offset:3px}[hidden]{display:none!important}
+.demo{padding:9px 16px;background:#e9e3ef;text-align:center;font-size:11px;color:#574365}.shell{width:min(1100px,calc(100% - 48px));margin:auto}header{padding:23px 0;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);gap:15px}.brand{font-size:24px;font-weight:800;letter-spacing:-.8px;display:flex;align-items:center;gap:10px}.mark{width:34px;height:34px;display:grid;place-items:center;background:var(--purple);color:#fff;border-radius:50% 50% 50% 8px;font-size:17px}.header-note{font-size:12px;color:var(--muted)}.hero{padding:35px 0 28px}.eyebrow{font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--purple);margin:0 0 10px}h1{font:normal clamp(34px,4.3vw,50px)/1.1 Georgia,serif;letter-spacing:-1.1px;margin:0 0 15px}.intro{color:var(--muted);max-width:660px;margin:0}.layout{display:grid;grid-template-columns:290px 1fr;gap:25px;align-items:start}aside h2{font-size:14px;margin:0 0 14px}.order{border:1px solid var(--line);background:#fffefa;border-radius:12px;padding:17px;width:100%;text-align:left;margin-bottom:12px;color:var(--ink);display:block}.order[aria-pressed=true]{border:2px solid var(--purple);padding:16px;background:#f0eaf7}.order strong{font-size:15px}.order span{display:block;font-size:12px;margin-top:7px;color:var(--muted)}.order .order-restaurant{font-size:14px;margin-top:5px;font-weight:600;color:var(--ink)}.help{font-size:12px;color:var(--muted);padding:8px 5px}.panel{background:#fffefa;border:1px solid var(--line);border-radius:15px;overflow:hidden}.panel-head{padding:24px 27px;background:#eee8f4;border-bottom:1px solid var(--line)}.panel-head h2{font-size:23px;margin:0 0 7px;letter-spacing:-.6px}.panel-head p{font-size:13px;margin:0;color:var(--muted)}.panel-body{padding:25px 27px}.summary{display:grid;grid-template-columns:1fr 1fr;gap:12px 20px;margin:0 0 19px}.summary dt{font-size:10px;text-transform:uppercase;font-weight:800;letter-spacing:.08em;color:var(--muted)}.summary dd{margin:4px 0 0;font-size:14px}.items{margin:0 0 20px;padding:14px 17px;background:#f7f5f8;border-radius:9px;font-size:13px}.items strong{display:block;margin-bottom:4px}.notice{font-size:13px;color:var(--muted);padding:13px 15px;background:#f3f1f6;border-radius:9px;margin:0 0 17px}.notice.warning{color:#814b1b;background:#fbf1df}.primary{display:inline-block;border:0;border-radius:8px;padding:12px 20px;background:var(--purple);color:#fff;font-weight:700;font-size:14px}.secondary{border:1px solid #b5a8c6;border-radius:8px;padding:10px 14px;background:#fffefa;color:var(--purple);font-weight:700;font-size:12px}.secondary:hover{background:#f0eaf7}.primary:hover{background:#452d65}.form-top{border-top:1px solid var(--line);padding-top:20px;margin-top:22px}.form-top h3{font-size:18px;margin:0 0 6px}.form-top p{font-size:12px;color:var(--muted);margin:0 0 19px}.field{margin-bottom:21px}.field label,.photo-legend{display:block;font-weight:700;font-size:13px;margin-bottom:7px}.required-note{font-weight:400;color:var(--muted)}select,textarea{width:100%;border:1px solid #b9afc5;border-radius:7px;background:#fff;color:var(--ink);padding:11px 12px}textarea{min-height:104px;resize:vertical}select[aria-invalid=true],textarea[aria-invalid=true]{border:2px solid var(--error)}.hint{font-size:11px;color:var(--muted);margin:6px 0}.error{font-size:12px;color:var(--error);font-weight:600;margin:7px 0 0}.error:empty{display:none}.photo-actions{display:flex;flex-wrap:wrap;gap:10px}.photos{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.photo{border:1px solid var(--line);border-radius:8px;padding:6px;width:125px;min-width:0}.photo img{width:100%;height:76px;object-fit:cover;border-radius:4px;background:#eee8f4}.photo span{display:block;font-size:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.photo button{border:0;background:transparent;color:var(--error);font-size:10px;text-decoration:underline;padding:4px 0}.form-bottom{border-top:1px solid var(--line);padding-top:18px;display:flex;justify-content:space-between;align-items:center;gap:15px}.form-bottom p{font-size:11px;color:var(--muted);max-width:280px;margin:0}.success{border:1px solid #bad1c3;background:#f0f7f0;border-radius:12px;padding:22px;margin-top:20px;color:#244b39}.success h3{font-size:21px;letter-spacing:-.5px;margin:0 0 6px}.ticket{font-size:24px;font-weight:800;letter-spacing:.04em;margin:9px 0}.success p{font-size:13px;margin:7px 0}.success dl{font-size:12px;margin:16px 0 0}.success dt{font-weight:700}.success dd{margin:3px 0 12px;overflow-wrap:anywhere;white-space:pre-wrap}.retained{font-size:12px!important;color:#40644f}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}footer{border-top:1px solid var(--line);margin-top:36px;padding:20px 0;display:flex;justify-content:space-between;gap:15px;font-size:11px;color:var(--muted)}.storage-error{border:1px solid #d5949c;background:#fff1f2;padding:13px;border-radius:8px;color:var(--error);margin-bottom:20px;font-size:13px}
+@media(max-width:790px){.layout{grid-template-columns:1fr}aside{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}aside h2,aside .help{grid-column:1/-1}.order{margin:0;padding:13px}.order[aria-pressed=true]{padding:12px}.order span{font-size:11px}.order .order-restaurant{font-size:12px}.order strong{font-size:13px}}
+@media(max-width:520px){.shell{width:calc(100% - 28px)}header{padding:18px 0}.header-note{max-width:105px;text-align:right;font-size:10px}.hero{padding:27px 0 24px}h1{font-size:35px}.intro{font-size:13px}aside{grid-template-columns:1fr}.order{padding:13px;display:grid;grid-template-columns:1fr auto;gap:3px 8px}.order .order-restaurant{grid-column:1;margin:0}.order .status-note{grid-row:1/3;grid-column:2;align-self:center;margin:0;max-width:110px;text-align:right}.panel-head{padding:20px}.panel-body{padding:20px}.summary{gap:14px}.form-bottom{align-items:stretch;flex-direction:column}.form-bottom .primary{width:100%}.form-bottom p{max-width:none}footer{flex-direction:column;gap:6px}.demo{font-size:10px}}
+dialog{width:min(560px,calc(100% - 30px));border:1px solid var(--line);border-radius:15px;padding:20px;background:#fffefa;max-height:90vh}dialog::backdrop{background:#21142b99;backdrop-filter:blur(3px)}dialog .success{margin:0 0 18px}
+</style>
+</head>
+<body>
+<div class="demo">PROTOTIPO ACADÉMICO · Pedidos ficticios · No envía reclamos a un servicio real</div>
+<div class="shell">
+<header><div class="brand"><span class="mark" aria-hidden="true">R</span>RutaSabor</div><span class="header-note">Estamos para ayudarte.</span></header>
+<main>
+  <section class="hero"><p class="eyebrow">Tus pedidos · Centro de ayuda</p><h1>Una solución empieza<br>por escucharte.</h1><p class="intro">Consulta tu pedido y cuéntanos qué ocurrió. Puedes reportar problemas de pedidos entregados durante las últimas 48 horas.</p></section>
+  <div id="storage-error" class="storage-error" role="alert" hidden></div>
+  <div class="layout">
+    <aside aria-label="Seleccionar pedido"><h2>Mis pedidos</h2><div id="order-buttons" style="display:contents"></div><p class="help">Los pedidos de ejemplo permiten comprobar cuándo está disponible un reclamo.</p></aside>
+    <section class="panel" aria-labelledby="order-title">
+      <div class="panel-head"><p class="eyebrow">Detalle del pedido</p><h2 id="order-title"></h2><p id="restaurant-name"></p></div>
+      <div class="panel-body">
+        <dl class="summary"><div><dt>Estado</dt><dd id="order-status"></dd></div><div><dt>Entrega</dt><dd id="order-delivery"></dd></div></dl>
+        <div class="items"><strong>Tu pedido</strong><span id="order-items"></span></div>
+        <p id="eligibility-note" class="notice"></p>
+        <button type="button" id="report" class="primary">Reportar problema</button>
+        <form id="claim-form" novalidate hidden>
+          <div class="form-top"><h3>Cuéntanos qué pasó</h3><p>El motivo, la descripción y entre 1 y 3 fotos son obligatorios.</p></div>
+          <div class="field"><label for="reason">Motivo <span class="required-note">(obligatorio)</span></label><select id="reason" required aria-describedby="reason-error"><option value="">Selecciona un motivo</option><option value="Faltó un producto">Faltó un producto</option><option value="Producto equivocado">Producto equivocado</option><option value="Comida dañada o derramada">Comida dañada o derramada</option></select><p class="error" id="reason-error"></p></div>
+          <div class="field"><label for="description">Descripción del problema <span class="required-note">(obligatoria)</span></label><textarea id="description" required placeholder="Describe el inconveniente con tu pedido." aria-describedby="description-error"></textarea><p class="error" id="description-error"></p></div>
+          <div class="field"><p class="photo-legend">Fotos del problema <span class="required-note">(entre 1 y 3)</span></p><div class="photo-actions"><button type="button" class="secondary" id="gallery-button">Elegir de la galería</button><button type="button" class="secondary" id="camera-button">Tomar una foto</button><button type="button" class="secondary" id="clear-photos" hidden>Quitar todas</button></div><input class="sr-only" tabindex="-1" id="gallery" type="file" accept=".jpg,.jpeg,.png,image/jpeg,image/png" multiple aria-label="Fotos desde la galería"><input class="sr-only" tabindex="-1" id="camera" type="file" accept=".jpg,.jpeg,.png,image/jpeg,image/png" capture="environment" aria-label="Foto desde la cámara"><p class="hint">Formatos permitidos: JPG, JPEG y PNG. Máximo: 5 MB por foto. La cámara depende de tu dispositivo y sus permisos.</p><p id="photo-count" class="hint" role="status">0 de 3 fotos adjuntas</p><div class="photos" id="photos"></div><p class="error" id="photos-error" role="alert"></p></div>
+          <div class="form-bottom"><p>Revisa los datos antes de enviar. Conservaremos un único reclamo por pedido.</p><button type="submit" class="primary" id="send">Enviar reclamo</button></div><p class="error" id="submit-error" role="alert"></p>
+        </form>
+        <dialog id="ticket-dialog" aria-labelledby="ticket-heading"><section id="confirmation" class="success" role="status" aria-live="polite" tabindex="-1" hidden><h3 id="ticket-heading">Reclamo registrado</h3><p>Tu número de ticket es:</p><div id="ticket-number" class="ticket"></div><p><strong>Te responderemos en menos de 24 horas.</strong></p><p id="retained-note" class="retained"></p><dl><dt>Motivo</dt><dd id="saved-reason"></dd><dt>Descripción</dt><dd id="saved-description"></dd><dt>Fotos adjuntas</dt><dd id="saved-photos"></dd></dl></section><form method="dialog"><button class="primary" style="width:100%">Cerrar confirmación</button></form></dialog>
+      </div>
+    </section>
+  </div>
+</main>
+<footer><span>Simulación de un Sprint Scrum · Grupo 7</span><span>Demostración local · Conserva el ticket en este navegador</span></footer>
+</div>
+<script>
+const STORAGE_KEY = 'grupo7-reclamos-demo-v1';
+const HOUR = 60 * 60 * 1000;
+const referenceTime = Date.now();
+const reasons = ['Faltó un producto','Producto equivocado','Comida dañada o derramada'];
+const orders = [
+  {id:'RD-1042',restaurant:'Forno Nueve',status:'Entregado',deliveredAt:referenceTime-12*HOUR,deliveryLabel:'Hace 12 horas',items:'1 pizza familiar + 2 bebidas'},
+  {id:'RD-1031',restaurant:'Origen Criollo',status:'Entregado',deliveredAt:referenceTime-60*HOUR,deliveryLabel:'Hace 60 horas',items:'2 menús de la casa'},
+  {id:'RD-1048',restaurant:'Verde & Grano',status:'En camino',deliveredAt:null,deliveryLabel:'Pendiente',items:'2 bowls de temporada'}
+];
+const $ = id => document.getElementById(id);
+let activeOrder = orders[0];
+let photos = [];
+let photoError = '';
+let validatingPhotos = false;
+let submitting = false;
+let photoVersion = 0;
+function isEligible(order, now=Date.now()) {
+  const elapsed = now - order.deliveredAt;
+  return order.status === 'Entregado' && Number.isFinite(order.deliveredAt) && elapsed >= 0 && elapsed <= 48*HOUR;
+}
+function readClaims(storage=localStorage) {
+  const stored = storage.getItem(STORAGE_KEY);
+  if (!stored) return {};
+  const parsed = JSON.parse(stored);
+  if (!parsed || Array.isArray(parsed) || typeof parsed !== 'object') throw new Error('Datos de reclamos inválidos');
+  return parsed;
+}
+function registerClaim(order, payload, storage=localStorage, now=Date.now()) {
+  const claims = readClaims(storage);
+  if (claims[order.id]) return {claim:claims[order.id],created:false};
+  if (!isEligible(order,now)) throw new Error('Este pedido ya no está dentro del plazo de 48 horas.');
+  const claim = {ticket:'G7-'+order.id+'-001',orderId:order.id,reason:payload.reason,description:payload.description,photos:payload.photos,createdAt:now};
+  claims[order.id] = claim;
+  storage.setItem(STORAGE_KEY,JSON.stringify(claims));
+  return {claim,created:true};
+}
+function showStorageError() { $('storage-error').hidden=false; $('storage-error').textContent='No fue posible leer o guardar el reclamo en este navegador. Habilita el almacenamiento local y vuelve a intentarlo. No se confirmó un nuevo envío.'; }
+function renderOrders() {
+  const container = $('order-buttons');
+  container.replaceChildren();
+  orders.forEach(order=>{
+    const button=document.createElement('button');
+    button.type='button'; button.className='order'; button.setAttribute('aria-pressed',String(order.id===activeOrder.id));
+    button.setAttribute('aria-label','Ver pedido '+order.id);
+    const strong=document.createElement('strong');strong.textContent=order.id;
+    const name=document.createElement('span');name.className='order-restaurant';name.textContent=order.restaurant;
+    const status=document.createElement('span');status.className='status-note';status.textContent=order.status+' · '+order.deliveryLabel;
+    button.append(strong,name,status);button.addEventListener('click',()=>selectOrder(order));container.append(button);
+  });
+}
+function clearPhotos() {
+  photoVersion++; photos.forEach(photo=>URL.revokeObjectURL(photo.url));photos=[];photoError='';validatingPhotos=false;
+  $('gallery').value='';$('camera').value='';$('send').disabled=false;renderPhotos();
+}
+function selectOrder(order) {
+  activeOrder=order;clearPhotos();$('claim-form').reset();$('claim-form').hidden=true;$('confirmation').hidden=true;
+  ['reason-error','description-error','photos-error','submit-error'].forEach(id=>$(id).textContent='');
+  $('reason').removeAttribute('aria-invalid');$('description').removeAttribute('aria-invalid');
+  $('order-title').textContent='Pedido '+order.id;$('restaurant-name').textContent=order.restaurant;
+  $('order-status').textContent=order.status;$('order-delivery').textContent=order.deliveryLabel;$('order-items').textContent=order.items;
+  const eligible=isEligible(order);$('report').hidden=!eligible;
+  $('eligibility-note').className='notice'+(eligible?'':' warning');
+  $('eligibility-note').textContent=eligible?'Este pedido puede reportarse: fue entregado hace menos de 48 horas.':order.status!=='Entregado'?'Podrás reportar un problema cuando el pedido esté marcado como Entregado.':'El plazo para reportar este pedido terminó: han pasado más de 48 horas desde la entrega.';
+  try { const existing=readClaims()[order.id]; if(existing){$('report').hidden=true;showConfirmation(existing,false,false);} } catch {showStorageError();}
+  renderOrders();
+}
+function renderPhotos() {
+  $('photos').replaceChildren();
+  photos.forEach((photo,index)=>{
+    const card=document.createElement('div');card.className='photo';
+    const img=document.createElement('img');img.src=photo.url;img.alt='Vista previa de la foto '+(index+1);
+    const name=document.createElement('span');name.textContent=photo.file.name;name.title=photo.file.name;
+    const remove=document.createElement('button');remove.type='button';remove.textContent='Quitar foto '+(index+1);
+    remove.addEventListener('click',()=>{URL.revokeObjectURL(photos[index].url);photos.splice(index,1);photoError='';renderPhotos();});
+    card.append(img,name,remove);$('photos').append(card);
+  });
+  $('photo-count').textContent=photos.length+' de 3 fotos adjuntas';$('clear-photos').hidden=photos.length===0;
+  $('photos-error').textContent=photoError;
+}
+async function isSupportedPhoto(file) {
+  const extension=file.name.split('.').pop().toLowerCase();
+  if(!['jpg','jpeg','png'].includes(extension)) return false;
+  if(file.type && !['image/jpeg','image/png'].includes(file.type)) return false;
+  const bytes=new Uint8Array(await file.slice(0,8).arrayBuffer());
+  const png=[137,80,78,71,13,10,26,10].every((byte,index)=>bytes[index]===byte);
+  const jpeg=bytes[0]===255&&bytes[1]===216&&bytes[2]===255;
+  if(extension==='png' ? !png : !jpeg) return false;
+  const url=URL.createObjectURL(file);
+  try { await new Promise((resolve,reject)=>{const image=new Image();image.onload=resolve;image.onerror=reject;image.src=url;});return true; }
+  catch{return false;}finally{URL.revokeObjectURL(url);}
+}
+async function addPhotos(event) {
+  const files=Array.from(event.target.files);event.target.value='';
+  if(!files.length)return;
+  if(photos.length+files.length>3){photoError='Adjunta entre 1 y 3 fotos. Quita alguna foto o selecciona menos archivos.';renderPhotos();return;}
+  const currentVersion=++photoVersion;validatingPhotos=true;$('send').disabled=true;photoError='';$('photos-error').textContent='';
+  try {
+    for(const file of files){if(file.size>5*1024*1024)throw new Error('Cada fotografía debe pesar como máximo 5 MB.');if(!await isSupportedPhoto(file))throw new Error('Solo se permiten fotos válidas en formato JPG, JPEG o PNG.');}
+    if(currentVersion!==photoVersion)return;
+    files.forEach(file=>photos.push({file,url:URL.createObjectURL(file)}));
+  } catch(error){if(currentVersion===photoVersion)photoError=error.message||'No fue posible leer la foto.';}
+  finally{if(currentVersion===photoVersion){validatingPhotos=false;$('send').disabled=false;renderPhotos();}}
+}
+function validateForm() {
+  const reasonValid=reasons.includes($('reason').value);const descriptionValid=$('description').value.trim().length>0;
+  $('reason-error').textContent=reasonValid?'':'Selecciona un motivo del reclamo.';$('reason').setAttribute('aria-invalid',String(!reasonValid));
+  $('description-error').textContent=descriptionValid?'':'Describe el problema antes de enviar.';$('description').setAttribute('aria-invalid',String(!descriptionValid));
+  if(validatingPhotos)photoError='Espera a que termine la validación de las fotos.';
+  if(!photoError&&(photos.length<1||photos.length>3))photoError='Adjunta entre 1 y 3 fotos en formato JPG, JPEG o PNG.';
+  $('photos-error').textContent=photoError;
+  const valid=reasonValid&&descriptionValid&&!photoError&&!validatingPhotos;
+  if(!valid){if(!reasonValid)$('reason').focus();else if(!descriptionValid)$('description').focus();else $('gallery-button').focus();}
+  return valid;
+}
+function showConfirmation(claim,created,focus=true) {
+  $('claim-form').hidden=true;$('report').hidden=true;$('confirmation').hidden=false;
+  $('ticket-number').textContent=claim.ticket;$('saved-reason').textContent=claim.reason;$('saved-description').textContent=claim.description;
+  $('saved-photos').textContent=claim.photos.map(photo=>photo.name).join(', ');
+  $('retained-note').textContent=created?'Guarda este ticket. Si reintentas el envío, conservaremos este mismo reclamo.':'Este pedido ya tiene un reclamo. Conservamos el mismo ticket; no se generó un duplicado.';
+  if(!$('ticket-dialog').open)$('ticket-dialog').showModal();if(focus)$('confirmation').focus();
+}
+$('reason').addEventListener('change',()=>{if(reasons.includes($('reason').value)){$('reason-error').textContent='';$('reason').setAttribute('aria-invalid','false');}});
+$('description').addEventListener('input',()=>{if($('description').value.trim()){$('description-error').textContent='';$('description').setAttribute('aria-invalid','false');}});
+$('report').addEventListener('click',()=>{if(!isEligible(activeOrder)){selectOrder(activeOrder);return;}try{const existing=readClaims()[activeOrder.id];if(existing){showConfirmation(existing,false);return;}}catch{showStorageError();return;}$('claim-form').hidden=false;$('report').hidden=true;$('reason').focus();});
+$('gallery-button').addEventListener('click',()=>$('gallery').click());$('camera-button').addEventListener('click',()=>$('camera').click());
+$('gallery').addEventListener('change',addPhotos);$('camera').addEventListener('change',addPhotos);$('clear-photos').addEventListener('click',clearPhotos);
+$('claim-form').addEventListener('submit',event=>{
+  event.preventDefault();if(submitting)return;$('submit-error').textContent='';
+  try { const existing=readClaims()[activeOrder.id];if(existing){showConfirmation(existing,false);return;} } catch {showStorageError();return;}
+  if(!isEligible(activeOrder)){$('submit-error').textContent='Este pedido no está dentro de las 48 horas permitidas.';return;}
+  if(!validateForm())return;
+  submitting=true;$('send').disabled=true;
+  try {const result=registerClaim(activeOrder,{reason:$('reason').value,description:$('description').value.trim(),photos:photos.map(photo=>({name:photo.file.name,type:photo.file.type}))});$('storage-error').hidden=true;showConfirmation(result.claim,result.created);}
+  catch(error){showStorageError();$('submit-error').textContent='No se confirmó el envío. Intenta nuevamente conservando tus datos.';}
+  finally{submitting=false;$('send').disabled=false;}
+});
+selectOrder(activeOrder);
+</script>
+</body>
+</html>

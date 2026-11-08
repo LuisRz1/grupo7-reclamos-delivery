@@ -1,0 +1,23 @@
+{
+  "name": "grupo7-reclamos-delivery",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env.local server/dev.mjs",
+    "build": "vite build",
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": "24.x"
+  },
+  "dependencies": {
+    "@vercel/blob": "2.8.2"
+  },
+  "devDependencies": {
+    "vite": "8.3.6"
+  },
+  "overrides": {
+    "zod": "^4.6.6"
+  }
+}
